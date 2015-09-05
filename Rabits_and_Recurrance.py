@@ -10,7 +10,7 @@ def fib_rabbits(n,k):
 def main():
     '''Main call. Parses, runs, and saves problem specific data.'''
     # Read the input data.
-    with open('data/rosalind_fib.txt') as input_data:
+    with open('data/Rabits_and_recurrence_data.txt') as input_data:
         n, k = map(int, input_data.read().strip().split())
 
     # Get the number of rabbits.
@@ -18,9 +18,6 @@ def main():
 
     # Print and save the answer.
     print rabbits
-    with open('output/004_FIB.txt', 'w') as output_data:
-        output_data.write(rabbits)
-
 
 if __name__ == '__main__':
     main()
