@@ -27,9 +27,11 @@ def RNA_to_Protein(seq , aa_map, stop = ('UAA', 'UAG', 'UGA')):
     start = seq.find('AUG') # Finds the start in the RNA sequence
     new_seq = seq[start:] # Now we use this sequence for protein synthesis
     codons = [new_seq[i:i+3] for i in range(0, len(new_seq),3)]
-    print len(codons)
-    print new_seq
-    print codons
+
+    # Debugging Tools
+    # print len(codons)
+    # print new_seq
+    # print codons
 
     # Take all codons until first stop codon
     coding_sequence  =  takewhile(lambda x: x not in stop and len(x) == 3,
