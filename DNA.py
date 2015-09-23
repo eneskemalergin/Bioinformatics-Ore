@@ -14,13 +14,12 @@ class dna():
         """Create DNA instance initialized to string s."""
         self.seq = s
 
-#    def lowercase(self):
-#        """Convert DNA sequence into lowercase letters"""
-#        return self.lower()
+    def __str__(self):
+        """Supports the string representation"""
+        return str(self.seq)
 
-#    def uppercase(self):
-#        """Convert DNA sequence into uppercase letters"""
-#        return str(self).upper()
+    # We may use objects as strings now!.
+    __repr__ = __str__
 
     def transcribe(self):
         """Converts DNA into RNA returns as a RNA string"""
