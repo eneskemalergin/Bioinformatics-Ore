@@ -27,7 +27,7 @@ class dna():
         """Checks if given string sequence is DNA"""
         is_DNA = True
         if is_DNA == True:
-            for char in line:
+            for char in self.seq:
                 if char.lower() == 'a' or char.lower() == 't' or char.lower() == 'c' or char.lower() == 'g'or char == '\n':
                    is_DNA = True
                 else:
