@@ -34,7 +34,7 @@ class dna():
                     is_DNA = False
                     print 'is DNA? ', is_DNA
                     break
-        return is_dna
+        return is_DNA
 
     def lowercase(self):
         """Convert DNA sequence into lowercase letters"""
