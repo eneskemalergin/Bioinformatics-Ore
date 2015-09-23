@@ -4,7 +4,9 @@ class dna():
     from DNA import dna
     # define objects
     dna1 = dna("ACAGTACGATACGATATTGTGTG")
+    dna1 = dna1.uppercase()
     dna1.reverse()
+    dna1.gc()
 
     """
 
@@ -20,6 +22,14 @@ class dna():
 
     # We may use objects as strings now!.
     __repr__ = __str__
+
+    def lowercase(self):
+        """Convert DNA sequence into lowercase letters"""
+        return self.seq.lower()
+
+    def uppercase(self):
+        """Convert DNA sequence into uppercase letters"""
+        return self.seq.upper()
 
     def transcribe(self):
         """Converts DNA into RNA returns as a RNA string"""
