@@ -4,13 +4,15 @@ class dna():
     from DNA import dna
     # define objects
     dna1 = dna("ACAGTACGATACGATATTGTGTG")
-    dna1 = dna1.uppercase()
+    dna1.lowercase()
+    dna1.uppercase()
     dna1.reverse()
     dna1.gc()
 
     """
 
-    basecomplement = {'A': 'T', 'C': 'G', 'T': 'A', 'G': 'C'}
+    basecomplement = {'A': 'T', 'C': 'G', 'T': 'A', 'G': 'C',
+                      'a': 't', 'c': 'g', 't': 'a', 'g': 'c'}
 
     def __init__(self, s):
         """Create DNA instance initialized to string s."""
@@ -34,7 +36,7 @@ class dna():
                     is_DNA = False
                     print 'is DNA? ', is_DNA
                     break
-        return is_DNA
+        return "is DNA?, it's "+ str(is_DNA)
 
     def lowercase(self):
         """Convert DNA sequence into lowercase letters"""
@@ -46,7 +48,7 @@ class dna():
 
     def transcribe(self):
         """Converts DNA into RNA returns as a RNA string"""
-        return self.seq.replace('T', 'U')
+        return self.seq.upper().replace('T', 'U')
 
     def reverse(self):
         """Return the DNA string in reverse order"""
