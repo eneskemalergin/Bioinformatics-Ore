@@ -23,6 +23,19 @@ class dna():
     # We may use objects as strings now!.
     __repr__ = __str__
 
+    def is_dna(self):
+        """Checks if given string sequence is DNA"""
+        is_DNA = True
+        if is_DNA == True:
+            for char in line:
+                if char.lower() == 'a' or char.lower() == 't' or char.lower() == 'c' or char.lower() == 'g'or char == '\n':
+                   is_DNA = True
+                else:
+                    is_DNA = False
+                    print 'is DNA? ', is_DNA
+                    break
+        return is_dna
+
     def lowercase(self):
         """Convert DNA sequence into lowercase letters"""
         return self.seq.lower()
