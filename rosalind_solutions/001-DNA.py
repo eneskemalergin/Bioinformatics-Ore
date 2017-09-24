@@ -1,5 +1,6 @@
 # Author: Enes Kemal Ergin
 # Date: 23/10/2017
+# Title: Counting DNA Nucleotides
 
 """
 Problem:
