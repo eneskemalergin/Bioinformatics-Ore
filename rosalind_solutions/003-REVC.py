@@ -1,5 +1,5 @@
 # Author: Enes Kemal Ergin
-# Date: 25/10/2017
+# Date: 25/09/2017
 # Title: Complementing a Strand of DNA
 
 """

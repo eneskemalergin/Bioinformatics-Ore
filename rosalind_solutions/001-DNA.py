@@ -1,5 +1,5 @@
 # Author: Enes Kemal Ergin
-# Date: 23/10/2017
+# Date: 23/09/2017
 # Title: Counting DNA Nucleotides
 
 """
