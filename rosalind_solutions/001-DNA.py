@@ -21,32 +21,22 @@ def count_nucleotides(s):
     s = s.upper()
     return s.count("A"), s.count("C"), s.count("G"), s.count("T")
 
-def main(data):
+def main(data_path):
     with open(data_path, "r") as seq:
         seq = seq.read().strip()
     output = count_nucleotides(seq)
-    return output
-
-def test(output):
-    ref_output = "20 12 17 21"
-    assert ref_output == output, "Result does not match the expected output!"
+    return ' '.join([str(e) for e in output])
 
 if __name__ == '__main__':
-    # TODO: Add command line parser to get data and run mode.
-    run_mode = 'real'
-    if run_mode == 'test':
-        data_path = "./data/test_dna.txt"
-    else:
-        data_path = "./data/rosalind_dna.txt"
+    run_mode = input('Select a run mode: (T)est, (F)ull ')
+    test_path = './data/test_dna.txt'
+    full_path  = './data/rosalind_dna.txt'
 
-    output = main(data_path)
-    lst = []
-    for i in output:
-        lst.append(str(i))
-    output = " ".join(lst)
-
-    if run_mode == 'test':
-        # print(output)
-        test(output)
+    if run_mode in ['T', 't']:
+        result  = main(test_path)
+        assert result == '20 12 17 21' , "Result doesn't match with expected result!"
+        print('The result is matching, Test is Passed!')
+    elif run_mode in ['F', 'f']:
+        print(main(full_path))
     else:
-        print(output)
+        print("The input is not correct please try again!")

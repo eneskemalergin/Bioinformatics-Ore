@@ -21,10 +21,17 @@ def main(data_path):
     return ("".join(RNAar))
 
 if __name__ == '__main__':
-    data_path = './data/rosalind_rna.txt'
-    print(main(data_path))
+    run_mode = input('Select a run mode: (T)est, (F)ull ')
+    test_path = './data/test_rna.txt'
+    full_path  = './data/rosalind_rna.txt'
 
-    # Uncomment when testing
-    # data_path2 = './data/test_rna.txt'
-    # assert main(data_path2) == "GAUGGAACUUGACUACGUAAAUU", "Wrong expected result!"
-    # print('passed the test!')
+    if run_mode in ['T', 't']:
+        result  = main(test_path)
+        assert result == 'GAUGGAACUUGACUACGUAAAUU' , "Result doesn't match with expected result!"
+        print('The result is matching, Test is Passed!')
+
+    elif run_mode in ['F', 'f']:
+        print(main(full_path))
+
+    else:
+        print("The input is not correct please try again!")
