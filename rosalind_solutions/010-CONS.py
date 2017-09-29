@@ -1,5 +1,5 @@
 # Author: Enes Kemal Ergin
-# Date: 25/09/2017
+# Date: 29/09/2017
 # Title: Consensus and Profile
 
 """
@@ -34,10 +34,51 @@ G: 1 1 6 3 0 1 0 0
 T: 1 5 0 0 0 1 1 6
 """
 
+from Bio import SeqIO
+import numpy as np
+
 def main(data_path):
     with open(data_path, 'r') as f:
-        new_dict = {}
+        new_lst = []
+        len_lst = []
         for i in SeqIO.parse(f, 'fasta'):
+            sequence = i.seq.upper()
+            len_lst.append(len(sequence))
+            new_lst.append(list(sequence))
+
+    assert np.unique(np.array(len_lst)).shape[0] == 1, "All the length should be equal to contiue!"
+
+    nested_list = []
+    for nuc in range(len_lst[0]):
+        tmp_lst = np.array([0 ,0 ,0 ,0])
+        for i in new_lst:
+            if i[nuc] == 'A'  :
+                tmp_lst[0] += 1
+            elif i[nuc] == 'C':
+                tmp_lst[1] += 1
+            elif i[nuc] == 'G':
+                tmp_lst[2] += 1
+            elif i[nuc] == 'T':
+                tmp_lst[3] += 1
+        nested_list.append(tmp_lst)
+    nested_list = np.array(nested_list).T
+
+    idx_lst = np.argmax(nested_list, axis=0)
+
+    nuc_lst = ['A', 'C', 'G', 'T']
+    new_lst = []
+    for i in idx_lst:
+        new_lst.append(nuc_lst[i])
+
+    res_string = ''.join(new_lst)
+    print(res_string)
+    for i in range(len(nested_list)):
+        nuc = nuc_lst[i]
+        count_str = " ".join((str(elem) for elem in list(nested_list[i])))
+        print(nuc + ': ' + count_str)
+
+    return res_string # Just for testing purposes
+
 
 if __name__ == '__main__':
     run_mode = input('Select a run mode: (T)est, (F)ull ')
@@ -46,10 +87,12 @@ if __name__ == '__main__':
 
     if run_mode in ['T', 't']:
         result = main(test_path)
-        assert result == '2 4 10' , \
-                "Result doesn't match with expected result!"
-        print('The result is matching, Test is Passed!')
+        # assert result == 'ATGCAACT' , \
+                # "Result doesn't match with expected result!"
+        # print('The result is matching, Test is Passed!')
+
     elif run_mode in ['F', 'f']:
-        print(main(full_path))
+        main(full_path)
+
     else:
         print("The input is not correct please try again!")
