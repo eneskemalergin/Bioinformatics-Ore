@@ -1,5 +1,5 @@
 # Author: Enes Kemal Ergin
-# Date: 29/09/2017
+# Date: 05/10/2017
 # Title: Finding a Shared Motif
 
 
